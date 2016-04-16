@@ -1,0 +1,51 @@
+@import "breakpoints";
+
+// Range
+$xs-or-smaller: "only screen and (max-width: " + $xs + ")";
+$sm-or-smaller: "only screen and (max-width: " + $sm + ")";
+$md-or-smaller: "only screen and (max-width: " + $md + ")";
+$lg-or-smaller: "only screen and (max-width: " + $lg + ")";
+$xl-or-smaller: "only screen and (max-width: " + $xl + ")";
+
+$larger-than-xs: "only screen and (min-width: " + ($xs + 1px) + ")";
+$larger-than-sm: "only screen and (min-width: " + ($sm + 1px) + ")";
+$larger-than-md: "only screen and (min-width: " + ($md + 1px) + ")";
+$larger-than-lg: "only screen and (min-width: " + ($lg + 1px) + ")";
+$larger-than-xl: "only screen and (min-width: " + ($xl + 1px) + ")";
+
+$between-xs-and-sm: "only screen and (min-width:" + ($xs + 1px) + ") and (max-width: " + $sm + ")";
+$between-xs-and-md: "only screen and (min-width:" + ($xs + 1px) + ") and (max-width: " + $md + ")";
+$between-xs-and-lg: "only screen and (min-width:" + ($xs + 1px) + ") and (max-width: " + $lg + ")";
+$between-xs-and-xl: "only screen and (min-width:" + ($xs + 1px) + ") and (max-width: " + $xl + ")";
+
+$between-sm-and-md: "only screen and (min-width:" + ($sm + 1px) + ") and (max-width: " + $md + ")";
+$between-sm-and-lg: "only screen and (min-width:" + ($sm + 1px) + ") and (max-width: " + $lg + ")";
+$between-sm-and-xl: "only screen and (min-width:" + ($sm + 1px) + ") and (max-width: " + $xl + ")";
+
+$between-md-and-lg: "only screen and (min-width:" + ($md + 1px) + ") and (max-width: " + $lg + ")";
+$between-md-and-xl: "only screen and (min-width:" + ($md + 1px) + ") and (max-width: " + $xl + ")";
+
+$between-lg-and-xl: "only screen and (min-width:" + ($lg + 1px) + ") and (max-width: " + $xl + ")";
+
+$ranges: (
+  lx: $larger-than-xl,
+  gl: $larger-than-lg,
+  dm: $larger-than-md,
+  ms: $larger-than-sm,
+  sx: $larger-than-xs,
+  xl: $xl-or-smaller,
+  lg: $lg-or-smaller,
+  md: $md-or-smaller,
+  sm: $sm-or-smaller,
+  xs: $xs-or-smaller,
+  glxl: $between-lg-and-xl,
+  dmxl: $between-md-and-xl,
+  dmlg: $between-md-and-lg,
+  msxl: $between-sm-and-xl,
+  mslg: $between-sm-and-lg,
+  msmd: $between-sm-and-md,
+  sxxl: $between-xs-and-xl,
+  sxlg: $between-xs-and-lg,
+  sxmd: $between-xs-and-md,
+  sxsm: $between-xs-and-sm,
+);
