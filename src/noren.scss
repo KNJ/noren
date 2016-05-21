@@ -26,6 +26,9 @@
     #{&}-space {
       justify-content: space-around;
     }
+    #{&}-middle {
+      align-items: center;
+    }
   }
 
   & > * {
