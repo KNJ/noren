@@ -1,31 +1,30 @@
+@mixin flex-position-rules($range) {
+  .#{$name}-#{$range}-oneline {
+    flex-wrap: nowrap;
+  }
+  .#{$name}-#{$range}-left {
+    justify-content: flex-start;
+  }
+  .#{$name}-#{$range}-right {
+    justify-content: flex-end;
+  }
+  .#{$name}-#{$range}-center {
+    justify-content: center;
+  }
+  .#{$name}-#{$range}-space {
+    justify-content: space-around;
+  }
+  .#{$name}-#{$range}-middle {
+    align-items: center;
+  }
+}
+
 .#{$name} {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-
-  // Overriding
-  @at-root {
-    #{&}-oneline {
-      flex-wrap: nowrap;
-    }
-    #{&}-left {
-      justify-content: flex-start;
-    }
-    #{&}-right {
-      justify-content: flex-end;
-    }
-    #{&}-center {
-      justify-content: center;
-    }
-    #{&}-space {
-      justify-content: space-around;
-    }
-    #{&}-middle {
-      align-items: center;
-    }
-  }
 
   & > * {
     flex-basis: auto;
@@ -40,7 +39,6 @@
   max-width: $outermost-width;
 }
 
-// Media Queries -- start
 .g-0 {
   display: none !important;
 }
@@ -50,6 +48,7 @@
     flex-basis: $val;
   }
 }
+@include flex-position-rules(g);
 
 @each $range, $spec in $ranges {
   @media #{$spec} {
@@ -61,6 +60,6 @@
         flex-basis: $val;
       }
     }
+    @include flex-position-rules($range)
   }
 }
-// Media Queries -- end
