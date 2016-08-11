@@ -1,0 +1,66 @@
+.#{$name} {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+
+  // Overriding
+  @at-root {
+    #{&}-oneline {
+      flex-wrap: nowrap;
+    }
+    #{&}-left {
+      justify-content: flex-start;
+    }
+    #{&}-right {
+      justify-content: flex-end;
+    }
+    #{&}-center {
+      justify-content: center;
+    }
+    #{&}-space {
+      justify-content: space-around;
+    }
+    #{&}-middle {
+      align-items: center;
+    }
+  }
+
+  & > * {
+    flex-basis: auto;
+    box-sizing: border-box;
+  }
+}
+
+.#{$name}-outermost {
+  margin: 0 auto;
+  padding-left: $outermost-padding-left;
+  padding-right: $outermost-padding-right;
+  max-width: $outermost-width;
+}
+
+// Media Queries -- start
+.g-0 {
+  display: none !important;
+}
+
+@each $frac, $val in $fractions {
+  .g-#{$frac} {
+    flex-basis: $val;
+  }
+}
+
+@each $range, $spec in $ranges {
+  @media #{$spec} {
+    .#{$range}-0 {
+      display: none !important;
+    }
+    @each $frac, $val in $fractions {
+      .#{$range}-#{$frac} {
+        flex-basis: $val;
+      }
+    }
+  }
+}
+// Media Queries -- end
