@@ -1,6 +1,2 @@
-.bundle/
-.sass-cache/
+node_modules/
 demo/
-vendor/
-build
-watch

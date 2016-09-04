@@ -1,0 +1,18 @@
+@import "breakpoints";
+
+// Range;
+$md-or-smaller: "only screen and (max-width: " + $md + ")";
+$lg-or-smaller: "only screen and (max-width: " + $lg + ")";
+
+$larger-than-md: "only screen and (min-width: " + ($md + 1px) + ")";
+$larger-than-lg: "only screen and (min-width: " + ($lg + 1px) + ")";
+
+$between-md-and-lg: "only screen and (min-width:" + ($md + 1px) + ") and (max-width: " + $lg + ")";
+
+$ranges: (
+  gl: $larger-than-lg,
+  dm: $larger-than-md,
+  lg: $lg-or-smaller,
+  md: $md-or-smaller,
+  dmlg: $between-md-and-lg,
+);
