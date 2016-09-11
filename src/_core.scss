@@ -20,6 +20,12 @@
 }
 
 @mixin ends($range) {
+  .#{$range}-top-end {
+    margin-top: 0 !important;
+  }
+  .#{$range}-bottom-end {
+    margin-bottom: 0 !important;
+  }
   .#{$range}-left-end {
     margin-left: 0 !important;
   }
