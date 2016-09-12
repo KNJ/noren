@@ -1,16 +1,16 @@
 // Range;
-$md-or-smaller: "only screen and (max-width: " + $md + ")";
-$lg-or-smaller: "only screen and (max-width: " + $lg + ")";
+$md: "only screen and (max-width: " + $medium + ")"; // $medium or smaller
+$lg: "only screen and (max-width: " + $large + ")";  // $large or smaller
 
-$larger-than-md: "only screen and (min-width: " + ($md + 1px) + ")";
-$larger-than-lg: "only screen and (min-width: " + ($lg + 1px) + ")";
+$dm: "only screen and (min-width: " + ($medium + 1px) + ")"; // larger than $medium
+$gl: "only screen and (min-width: " + ($large + 1px) + ")";  // larger than $large
 
-$between-md-and-lg: "only screen and (min-width:" + ($md + 1px) + ") and (max-width: " + $lg + ")";
+$dmlg: "only screen and (min-width:" + ($medium + 1px) + ") and (max-width: " + $large + ")"; // between $medium and $large
 
 $ranges: (
-  gl: $larger-than-lg,
-  dm: $larger-than-md,
-  lg: $lg-or-smaller,
-  md: $md-or-smaller,
-  dmlg: $between-md-and-lg,
+  gl: $gl,
+  dm: $dm,
+  lg: $lg,
+  md: $dm,
+  dmlg: $dmlg,
 );
