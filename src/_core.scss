@@ -17,6 +17,9 @@
   .#{$name}-#{$range}-middle {
     align-items: center;
   }
+  .#{$name}-#{$range}-condensed {
+    align-content: center;
+  }
 }
 
 @mixin ends($range) {
