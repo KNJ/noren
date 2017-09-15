@@ -1,24 +1,54 @@
 @mixin flex-position-rules($range) {
-  .#{$name}-#{$range}-oneline {
+  &.#{$range}-oneline {
     flex-wrap: nowrap;
   }
-  .#{$name}-#{$range}-left {
+  &.#{$range}-m-start {
     justify-content: flex-start;
   }
-  .#{$name}-#{$range}-right {
+  &.#{$range}-m-end {
     justify-content: flex-end;
   }
-  .#{$name}-#{$range}-center {
+  &.#{$range}-m-center {
     justify-content: center;
   }
-  .#{$name}-#{$range}-space {
+  &.#{$range}-m-even {
+    justify-content: space-between;
+  }
+  &.#{$range}-m-space {
     justify-content: space-around;
   }
-  .#{$name}-#{$range}-middle {
+  &.#{$range}-a-stretch {
+    align-items: stretch;
+  }
+  &.#{$range}-a-start {
+    align-items: flex-start;
+  }
+  &.#{$range}-a-end {
+    align-items: flex-end;
+  }
+  &.#{$range}-a-center {
     align-items: center;
   }
-  .#{$name}-#{$range}-condensed {
+  &.#{$range}-a-baseline {
+    align-items: baseline;
+  }
+  &.#{$range}-c-stretch {
+    align-content: stretch;
+  }
+  &.#{$range}-c-start {
+    align-content: flex-start;
+  }
+  &.#{$range}-c-end {
+    align-content: flex-end;
+  }
+  &.#{$range}-c-center {
     align-content: center;
+  }
+  &.#{$range}-c-even {
+    align-content: space-between;
+  }
+  &.#{$range}-c-space {
+    align-content: space-around;
   }
 }
 
@@ -48,6 +78,8 @@
     flex-basis: auto;
     box-sizing: border-box;
   }
+
+  @include flex-position-rules(g)
 }
 
 .#{$name}-outermost {
@@ -64,9 +96,9 @@
 @each $frac, $val in $fractions {
   .g-#{$frac} {
     flex-basis: $val;
+    width: $val;
   }
 }
-@include flex-position-rules(g)
 @include ends(g)
 
 @each $range, $spec in $ranges {
@@ -77,9 +109,12 @@
     @each $frac, $val in $fractions {
       .#{$range}-#{$frac} {
         flex-basis: $val;
+        width: $val;
       }
     }
-    @include flex-position-rules($range)
+    .#{$name} {
+      @include flex-position-rules($range)
+    }
     @include ends($range)
   }
 }
